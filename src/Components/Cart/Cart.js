@@ -10,7 +10,7 @@ const Cart = ({ cart }) => {
     for (const product of cart) {
         quantity = quantity + product.quantity;
         price = price + product.price * product.quantity;
-        shipping = shipping + product.shipping;
+        shipping = shipping + product.shipping * product.quantity;
     }
 
     const tax = parseFloat((price * 0.1).toFixed(2));
