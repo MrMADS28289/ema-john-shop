@@ -3,6 +3,9 @@ import './Cart.css'
 
 const Cart = ({ cart }) => {
 
+    // const orders = cart;
+    // console.log(orders);
+
     let price = 0;
     let shipping = 0;
     let quantity = 0;
@@ -27,5 +30,6 @@ const Cart = ({ cart }) => {
         </div>
     );
 };
+
 
 export default Cart;

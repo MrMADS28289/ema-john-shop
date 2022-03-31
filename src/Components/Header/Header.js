@@ -1,16 +1,23 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faList } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../images/Logo.svg'
 import './Header.css'
 
 const Header = () => {
     return (
         <nav className='header'>
-            <img src={logo} alt="" />
+            <button>
+                <FontAwesomeIcon className='text-white' icon={faList}></FontAwesomeIcon>
+            </button>
+            <Link to="/"><img src={logo} alt="" /></Link>
             <div>
-                <a href="/shop">Shop</a>
-                <a href="/orders">Orders</a>
-                <a href="/inventory">Inventory</a>
-                <a href="/about">About us</a>
+                <Link to="/">Home</Link>
+                <Link to="/shop">Shop</Link>
+                <Link to="/orders">Orders Reviw</Link>
+                <Link to="/inventory">Inventory</Link>
+                <Link to="/about">About us</Link>
             </div>
         </nav>
     );

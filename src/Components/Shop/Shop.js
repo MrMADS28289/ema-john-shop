@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { addToDb, getStoredCart } from '../../utilities/fakedb';
+import useCart from '../../Hooks/useCart';
+import useProducts from '../../Hooks/useProducts/useProducts';
+import { addToDb } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css'
@@ -7,44 +8,21 @@ import './Shop.css'
 
 
 const Shop = () => {
-    const [products, setPorducts] = useState([]);
-    const [cart, setCart] = useState([]);
-
-    useEffect(() => {
-        fetch('products.json')
-            .then(res => res.json())
-            .then(data => setPorducts(data))
-    }, [])
-
-    useEffect(() => {
-        const storedCart = getStoredCart();
-        const saveCart = [];
-        for (const id in storedCart) {
-            const addededProduct = products.find(product => product.id === id);
-
-            if (addededProduct) {
-                const quantity = storedCart[id];
-                addededProduct.quantity = quantity;
-                saveCart.push(addededProduct);
-            }
-        }
-
-        setCart(saveCart)
-
-    }, [products])
+    const [products, setPorducts] = useProducts();
+    const [cart, setCart] = useCart(products);
 
 
     const handleAddToCart = (selectedProduct) => {
 
         let newCart = [];
-        const exists = cart.find(product => product.id === selectedProduct.id);
+        const exists = cart?.find(product => product.id === selectedProduct.id);
 
         if (!exists) {
             selectedProduct.quantity = 1;
             newCart = [...cart, selectedProduct];
         }
         else {
-            const rest = cart.filter(product => product.id !== selectedProduct.id);
+            const rest = cart?.filter(product => product.id !== selectedProduct.id);
             exists.quantity = exists.quantity + 1;
             newCart = [...rest, exists];
         }
@@ -57,7 +35,7 @@ const Shop = () => {
         <div className='shop-container'>
             <div className="product-container">
                 {
-                    products.map(product =>
+                    products?.map(product =>
                         <Product
                             key={product.id}
                             product={product}

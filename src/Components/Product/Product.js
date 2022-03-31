@@ -6,7 +6,6 @@ import './Product.css';
 
 
 
-
 const Product = ({ handleAddToCart, product }) => {
 
     const { name, ratings, img, price, seller } = product;
@@ -15,7 +14,7 @@ const Product = ({ handleAddToCart, product }) => {
         <div className='product'>
             <img src={img} alt="" />
             <p className='product-name'>{name}</p>
-            <div className="product-details">
+            <div className="text-sm">
                 <p>Price: ${price}</p>
                 <p><small>Manufacturer : {seller}</small></p>
                 <p><small>Rating : {ratings} Stars</small></p>

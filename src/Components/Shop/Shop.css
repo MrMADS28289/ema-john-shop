@@ -19,3 +19,15 @@
         margin: auto;
     }
 }
+@media screen and (max-width: 667px) {
+    .shop-container{
+        grid-template-columns: 1fr;
+    }
+    .product-container{
+        grid-template-columns: repeat(1, 1fr);
+        gap: 80px;
+        margin: auto;
+        margin-bottom: 32px;
+    }
+    
+}
