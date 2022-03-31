@@ -1,0 +1,11 @@
+.reviw-item {
+    width: 571px;
+    border: 1px solid #95A0A7;
+    border-radius: 8px;
+    margin: 24px;
+    padding: 8px;
+}
+
+.reviw-item img {
+    width: 91px;
+}

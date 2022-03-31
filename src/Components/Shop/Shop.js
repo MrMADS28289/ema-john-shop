@@ -1,3 +1,6 @@
+import { faArrowCircleRight, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 import useCart from '../../Hooks/useCart';
 import useProducts from '../../Hooks/useProducts/useProducts';
 import { addToDb } from '../../utilities/fakedb';
@@ -44,7 +47,18 @@ const Shop = () => {
                 }
             </div>
             <div className="cart-container">
-                <Cart cart={cart}></Cart>
+                <Cart cart={cart}>
+                    <button className='flex justify-between items-center bg-[#FF3030] text-white p-3 rounded-sm w-[100%] my-5'>
+                        <p>Clear Cart</p>
+                        <FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon>
+                    </button>
+                    <Link to='/orders'>
+                        <button className='flex justify-between items-center bg-[#FF9900] text-white p-3 rounded-sm w-[100%]'>
+                            <p>Review Order</p>
+                            <FontAwesomeIcon icon={faArrowCircleRight}></FontAwesomeIcon>
+                        </button>
+                    </Link>
+                </Cart>
             </div>
         </div>
     );
