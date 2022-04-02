@@ -1,7 +1,7 @@
 import { faCreditCard, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useCart from '../../Hooks/useCart';
 import useProducts from '../../Hooks/useProducts/useProducts';
 import { removeFromDb } from '../../utilities/fakedb';
@@ -9,7 +9,10 @@ import Cart from '../Cart/Cart';
 import ProductReviw from '../ProductReviw/ProductReviw';
 import { deleteShoppingCart } from '../../utilities/fakedb';
 
+
 const Orders = () => {
+
+    const navigate = useNavigate();
 
     const [products] = useProducts();
     const [cart, setCart] = useCart(products);
@@ -31,7 +34,8 @@ const Orders = () => {
                             handleRemoveItem={handleRemoveItem}
                         ></ProductReviw>)
                         : <h1 className='text-5xl text-red-400 font-bold mt-5 p-4'>You have to must select a item!
-                            <br /> For Reviw.</h1>
+                            <br /> For Reviw. <br /> <button onClick={() => navigate(-1)} className='text-lg bg-orange-400 text-white px-3 rounded-lg hover:bg-orange-500'>Go to shop</button></h1>
+
                 }
             </div>
             <div className="cart-container">

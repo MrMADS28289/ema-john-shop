@@ -1,17 +1,52 @@
-.header{
+.header {
     height: 80px;
     background-color: #1C2B35;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 140px;
-    padding-right: 140px;
+    /* padding-left: 140px;
+    padding-right: 140px; */
 }
-.header a{
+
+.header a {
     color: #FFFFFF;
     text-decoration: none;
     margin-left: 34px;
 }
-.header a:hover{
+
+.header a:hover {
     color: orange;
 }
+
+/* .icon {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .header a:not(:first-child) {
+        display: none;
+    }
+
+    .header .icon {
+        float: right;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .header {
+        position: relative;
+    }
+
+    .header .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .header a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+} */
