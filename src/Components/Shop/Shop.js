@@ -7,11 +7,12 @@ import { addToDb } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css'
+import { deleteShoppingCart } from '../../utilities/fakedb'
 
 
 
 const Shop = () => {
-    const [products, setPorducts] = useProducts();
+    const [products] = useProducts();
     const [cart, setCart] = useCart(products);
 
 
@@ -48,12 +49,15 @@ const Shop = () => {
             </div>
             <div className="cart-container">
                 <Cart cart={cart}>
-                    <button className='flex justify-between items-center bg-[#FF3030] text-white p-3 rounded-sm w-[100%] my-5'>
+                    <button onClick={() => {
+                        deleteShoppingCart();
+                        setCart([]);
+                    }} className='flex justify-between items-center bg-[#FF3030] text-white p-3 rounded-sm w-[100%] my-5 hover:bg-red-700'>
                         <p>Clear Cart</p>
                         <FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon>
                     </button>
                     <Link to='/orders'>
-                        <button className='flex justify-between items-center bg-[#FF9900] text-white p-3 rounded-sm w-[100%]'>
+                        <button className='flex justify-between items-center bg-[#FF9900] text-white p-3 rounded-sm w-[100%] hover:bg-orange-500'>
                             <p>Review Order</p>
                             <FontAwesomeIcon icon={faArrowCircleRight}></FontAwesomeIcon>
                         </button>

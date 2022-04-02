@@ -7,10 +7,11 @@ import useProducts from '../../Hooks/useProducts/useProducts';
 import { removeFromDb } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import ProductReviw from '../ProductReviw/ProductReviw';
+import { deleteShoppingCart } from '../../utilities/fakedb';
 
 const Orders = () => {
 
-    const [products, setProducts] = useProducts();
+    const [products] = useProducts();
     const [cart, setCart] = useCart(products);
 
     const handleRemoveItem = (product) => {
@@ -23,21 +24,27 @@ const Orders = () => {
         <div className='shop-container'>
             <div className="flex flex-col items-center">
                 {
-                    cart.map(product => <ProductReviw
-                        key={product.id}
-                        product={product}
-                        handleRemoveItem={handleRemoveItem}
-                    ></ProductReviw>)
+                    cart.length ?
+                        cart.map(product => <ProductReviw
+                            key={product.id}
+                            product={product}
+                            handleRemoveItem={handleRemoveItem}
+                        ></ProductReviw>)
+                        : <h1 className='text-5xl text-red-400 font-bold mt-5 p-4'>You have to must select a item!
+                            <br /> For Reviw.</h1>
                 }
             </div>
             <div className="cart-container">
                 <Cart cart={cart}>
-                    <button className='flex justify-between items-center bg-[#FF3030] text-white p-3 rounded-sm w-[100%] my-5'>
+                    <button onClick={() => {
+                        deleteShoppingCart();
+                        setCart([]);
+                    }} className='flex justify-between items-center bg-[#FF3030] text-white p-3 rounded-sm w-[100%] my-5 hover:bg-red-700'>
                         <p>Clear Cart</p>
                         <FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon>
                     </button>
                     <Link to='/inventory'>
-                        <button className='flex justify-between items-center bg-[#FF9900] text-white p-3 rounded-sm w-[100%]'>
+                        <button className='flex justify-between items-center bg-[#FF9900] text-white p-3 rounded-sm w-[100%] hover:bg-orange-500'>
                             <p>Checkout</p>
                             <FontAwesomeIcon icon={faCreditCard}></FontAwesomeIcon>
                         </button>
