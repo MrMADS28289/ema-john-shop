@@ -47,7 +47,7 @@ const Orders = () => {
                         <p>Clear Cart</p>
                         <FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon>
                     </button>
-                    <Link to='/inventory'>
+                    <Link to='/shipment'>
                         <button className='flex justify-between items-center bg-[#FF9900] text-white p-3 rounded-sm w-[100%] hover:bg-orange-500'>
                             <p>Checkout</p>
                             <FontAwesomeIcon icon={faCreditCard}></FontAwesomeIcon>
