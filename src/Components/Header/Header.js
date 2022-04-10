@@ -16,6 +16,7 @@ const Header = () => {
                 <CustomLink to="/orders">Orders</CustomLink>
                 <CustomLink to="/inventory">Inventory</CustomLink>
                 <CustomLink to="/about">About us</CustomLink>
+                <CustomLink to="/login">Login</CustomLink>
             </div>
             <button className='md:hidden mr-4'>
                 <FontAwesomeIcon className='text-white' icon={faList}></FontAwesomeIcon>
