@@ -12,7 +12,7 @@ import { signOut } from 'firebase/auth';
 const Header = () => {
     const [user] = useAuthState(auth);
     return (
-        <nav className='header'>
+        <nav className='header '>
             <Link to="/"><img src={logo} alt="" /></Link>
             <div className='hidden md:flex mr-2'>
                 {/* <Link to="/">Home</Link> */}

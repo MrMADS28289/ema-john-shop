@@ -15,12 +15,12 @@ const Orders = () => {
     const navigate = useNavigate();
 
     const [products] = useProducts();
-    const [cart, setCart] = useCart(products);
+    const [cart, setCart] = useCart();
 
     const handleRemoveItem = (product) => {
-        const rest = cart.filter(pd => pd.id !== product.id);
+        const rest = cart.filter(pd => pd._id !== product._id);
         setCart(rest);
-        removeFromDb(product.id);
+        removeFromDb(product._id);
     }
 
     return (
@@ -29,7 +29,7 @@ const Orders = () => {
                 {
                     cart.length ?
                         cart.map(product => <ProductReviw
-                            key={product.id}
+                            key={product._id}
                             product={product}
                             handleRemoveItem={handleRemoveItem}
                         ></ProductReviw>)

@@ -19,7 +19,7 @@ const Cart = (props) => {
     const total = price + shipping + tax;
 
     return (
-        <div className='cart h-[100%]'>
+        <div className='cart h-[100%] '>
             <h4>Orders Summary</h4>
             <p>selected items: {quantity}</p>
             <p>Total Price: ${price}</p>
