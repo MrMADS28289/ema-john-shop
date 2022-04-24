@@ -2,7 +2,6 @@ import { faArrowCircleRight, faTrashAlt } from '@fortawesome/free-solid-svg-icon
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import useCart from '../../Hooks/useCart';
-// import useProducts from '../../Hooks/useProducts/useProducts';
 import { addToDb } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
@@ -13,7 +12,6 @@ import { useEffect, useState } from 'react';
 
 
 const Shop = () => {
-    // const [products] = useProducts();
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useCart(products);
     const [count, setCount] = useState();
@@ -73,7 +71,7 @@ const Shop = () => {
                                 key={number}
                                 className={page === number ? 'selected' : ''}
                                 onClick={() => setPage(number)}
-                            >{number}</button>)
+                            >{number + 1}</button>)
                     }
                     <select onChange={e => setSize(e.target.value)}>
                         <option value="5">5</option>

@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useCart from '../../Hooks/useCart';
-import useProducts from '../../Hooks/useProducts/useProducts';
 import { removeFromDb } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import ProductReviw from '../ProductReviw/ProductReviw';
@@ -13,8 +12,6 @@ import { deleteShoppingCart } from '../../utilities/fakedb';
 const Orders = () => {
 
     const navigate = useNavigate();
-
-    const [products] = useProducts();
     const [cart, setCart] = useCart();
 
     const handleRemoveItem = (product) => {
